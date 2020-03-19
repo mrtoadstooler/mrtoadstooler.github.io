@@ -3,7 +3,8 @@
 
 <head>
     <title>Magadzin: Authorize</title>
-    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -15,20 +16,25 @@
 
     <div class="nav">
         <a href="index.html">Main</a>
-        <a href="goods.html">Goods</a>
+        <a href="goods.html">Buy</a>
         <a href="https://natribu.org/ua/">Wishes & Complaints</a>
-        <a href="login.html" style="float:right">Authorize</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="login.html" style="float:right">Profile</a>
     </div>
 
     <div class="entry entry-center">
         <h2>LOG IN</h2>
         <form>
-            <label for="user">username:</label><br>
-            <input type="text" id="user" name="user"><br>
-            <label for="pswd">password:</label><br>
-            <input type="password" id="pswd" name="pswd"><br>
+            <input type="text" id="user" name="user" placeholder="username"><br>
+            <input type="password" id="pass" name="pass" placeholder="password"><br>
             <input type="submit" value="submit">
         </form>
+    </div>
+
+    <div class="entry entry-empty">
+        <div class="entry entry-card">
+            <h2>Have no account?<br /><a href="signup.html">CREATE ONE!</a></h2>
+        </div>
     </div>
 
 
