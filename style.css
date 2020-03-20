@@ -103,8 +103,8 @@ input[type=submit]:hover {
     margin-left: 5vw;
     margin-right: 5vw;
     padding: 5vw;
-    border: 0.1vw dashed grey;
     background: white;
+    border: 0.1vw dashed grey;
     text-shadow: 0 0 1vw white;
 }
 
@@ -146,35 +146,39 @@ input[type=submit]:hover {
 }
 
 /* SCROLLING ----------------------------------------------------------------*/
-
 img {
     margin-bottom: 0;
     height: 20vw;
     width: 20vw;
-    /* border: 0.1vw solid grey; */
 }
 
-.horizontal-scroll-wrapper {
+.scroll-placeholder {
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 40vw;
+    float: none;
+}
+
+.scroll-wrap {
     display: block;
     max-height: 100vw;
     width: 40vw;
     background: rgba(0, 0, 0, 0);
     overflow-y: auto;
     overflow-x: hidden;
-    /* obrezanie: self.width */
     transform: rotate(-90deg) translateY(-40vw);
     transform-origin: right top;
-
     padding: 50vw 0 0 0;
 }
 
-.horizontal-scroll-wrapper>div {
+.scroll-wrap>div {
     display: block;
     background: white;
     border: 0.1vw dashed grey;
     transform: rotate(90deg);
     transform-origin: right top;
-
     width: 30vw;
     height: 30vw;
     margin: 5vw;
@@ -182,10 +186,7 @@ img {
     text-align: center;
     font-family: "Bungee Shade";
     font-size: 1.5vw;
-
 }
-
-
 
 /* ADAPTIVE -----------------------------------------------------------------*/
 @media screen and (max-width: 500px) {
