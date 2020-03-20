@@ -1,25 +1,29 @@
 * {
     -ms-overflow-style: none;
     box-sizing: border-box;
-}
 
-*::-webkit-scrollbar {
-    display: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 a {
     text-decoration: none;
 }
 
-/* BODY ---------------------------------------------------------------------*/
+img {
+    margin-bottom: 0;
+    height: 20vw;
+    width: 20vw;
+}
+
 body {
     font-family: 'Electrolize';
     font-size: 2vw;
-    background-image: url(img/bk.jpg);
+    background-image: url("bk.jpg");
     background-attachment: fixed;
     background-size: 25%;
 }
-
 /* INPUTS -------------------------------------------------------------------*/
 input {
     background: white;
@@ -32,18 +36,18 @@ input {
     font-size: 2vw;
     border-radius: 1vw;
     -webkit-border-radius: 1vw;
-}
 
-input:hover {
-    border: 0.1vw solid black;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-}
+    &:hover {
+        border: 0.1vw solid black;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+    }
 
-input:focus {
-    border: 0.2vw solid black;
-    border-radius: 0;
-    -webkit-border-radius: 0;
+    &:focus {
+        border: 0.2vw solid black;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+    }
 }
 
 input[type=submit] {
@@ -53,51 +57,48 @@ input[type=submit] {
     cursor: pointer;
     background: black;
     color: white;
-}
 
-input[type=submit]:hover {
-    border: 0.2vw solid black;
-    background: white;
-    color: black;
-    text-transform: uppercase;
+    &:hover {
+        border: 0.2vw solid black;
+        background: white;
+        color: black;
+        text-transform: uppercase;
+    }
 }
-
 /* HEADER -------------------------------------------------------------------*/
 .header {
     background: white;
     font-family: 'Bungee';
     text-align: center;
     border: 1vw double black;
-}
 
-.header h1 {
-    font-family: 'Bungee Shade';
-    font-size: 6vw;
-    text-shadow: 0 0 7vw cyan;
+    h1 {
+        font-family: 'Bungee Shade';
+        font-size: 6vw;
+        text-shadow: 0 0 7vw cyan;
+    }
 }
-
 /* NAV ----------------------------------------------------------------------*/
 .nav {
     background: white;
     overflow: hidden;
     border: 0.2vw solid black;
     border-top: 0;
-}
 
-.nav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 0.2vw 1vw;
-    text-decoration: none;
-}
+    a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 0.2vw 1vw;
+        text-decoration: none;
 
-.nav a:hover {
-    background-color: black;
-    color: white;
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
 }
-
 /* MAIN-CARD ----------------------------------------------------------------*/
 .entry {
     margin-left: 5vw;
@@ -106,52 +107,43 @@ input[type=submit]:hover {
     background: white;
     border: 0.1vw dashed grey;
     text-shadow: 0 0 1vw white;
+    text-align: center;
+
+    h2 {
+        font-size: 3vw;
+        text-shadow: 0 0 3vw cyan;
+        font-family: 'Bungee Shade';
+    }
 }
 
 .entry-center {
+    @extend .entry;
     border-top: 0;
     border-left: 0.5vw solid black;
     border-right: 0.5vw solid black;
-    text-align: center;
 }
 
 .entry-left {
+    @extend .entry;
     border-left: 0.5vw solid black;
     text-align: left;
     -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.8)));
 }
 
 .entry-right {
+    @extend .entry;
     border-right: 0.5vw solid black;
     text-align: right;
     -webkit-mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.8)));
 }
 
 .entry-empty {
+    @extend .entry;
     background: rgba(0, 0, 0, 0);
-    border: 0 dashed grey;
-    text-align: center;
-}
-
-.entry-card {
-    background: white;
-    border: 0.1vw dashed grey;
-    text-align: center;
-}
-
-.entry h2 {
-    font-size: 3vw;
-    text-shadow: 0 0 3vw cyan;
-    font-family: 'Bungee Shade';
+    border: 0;
 }
 
 /* SCROLLING ----------------------------------------------------------------*/
-img {
-    margin-bottom: 0;
-    height: 20vw;
-    width: 20vw;
-}
-
 .scroll-placeholder {
     display: block;
     background: rgba(0, 0, 0, 0);
@@ -170,24 +162,23 @@ img {
     overflow-x: hidden;
     transform: rotate(-90deg) translateY(-40vw);
     transform-origin: right top;
-    padding: 50vw 0 0 0;
-}
+    padding: 50vw 0 0;
 
-.scroll-wrap>div {
-    display: block;
-    background: white;
-    border: 0.1vw dashed grey;
-    transform: rotate(90deg);
-    transform-origin: right top;
-    width: 30vw;
-    height: 30vw;
-    margin: 5vw;
-    padding-top: 1.5vw;
-    text-align: center;
-    font-family: "Bungee Shade";
-    font-size: 1.5vw;
+    & > div {
+        display: block;
+        background: white;
+        border: 0.1vw dashed grey;
+        transform: rotate(90deg);
+        transform-origin: right top;
+        width: 30vw;
+        height: 30vw;
+        margin: 5vw;
+        padding-top: 1.5vw;
+        text-align: center;
+        font-family: "Bungee Shade";
+        font-size: 1.5vw;
+    }
 }
-
 /* ADAPTIVE -----------------------------------------------------------------*/
 @media screen and (max-width: 500px) {
     .nav a {
