@@ -17,6 +17,7 @@ body {
     font-size: 2vw;
     background-image: url(img/bk.jpg);
     background-attachment: fixed;
+    background-size: 30%;
 }
 
 /* INPUTS -------------------------------------------------------------------*/
@@ -79,7 +80,8 @@ input[type=submit]:hover {
 .nav {
     background: white;
     overflow: hidden;
-    border-bottom: 0.2vw solid black;
+    border: 0.2vw solid black;
+    border-top: 0;
 }
 
 .nav a {
