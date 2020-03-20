@@ -118,13 +118,13 @@ input[type=submit]:hover {
 .entry-left {
     border-left: 0.5vw solid black;
     text-align: left;
-    -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.7)));
+    -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.8)));
 }
 
 .entry-right {
     border-right: 0.5vw solid black;
     text-align: right;
-    -webkit-mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.7)));
+    -webkit-mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.8)));
 }
 
 .entry-empty {
