@@ -1,5 +1,5 @@
 const XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-const URL = "http://mrtoadstooler.github.io/";
+const URL = "https://mrtoadstooler.github.io/";
 const SRV = "http://localhost:3100/api/";
 const CART = {}
 
