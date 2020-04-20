@@ -89,7 +89,7 @@ function login() {
     pass = document.getElementById('pass')
         .value;
 
-    if (!user && !pass) {
+    if (!user || !pass) {
         alert("Please, fill all fields!")
     } else {
 
@@ -107,7 +107,7 @@ function login() {
                     CART[k] = 0;
                 }
                 loadPage('main');
-            } else if (this.responseText == 'UA') {
+            } else {
                 if (confirm(
                         'Account does not exist!\nDo you want to sign up ?'
                     )) {
@@ -115,11 +115,53 @@ function login() {
                     document.getElementById('user')
                         .value = user;
                 }
-            } else {
-                alert('Some problems occured. Try again later.');
             }
         }
         rq.send(JSON.stringify({
+            'user': user,
+            'pass': pass
+        }));
+    }
+}
+
+
+function signup() {
+
+    mail = document.getElementById('mail')
+        .value;
+    user = document.getElementById('user')
+        .value;
+    pass = document.getElementById('pass')
+        .value;
+    pass_confirm = document.getElementById('pass_confirm')
+        .value;
+
+    if (!mail || !user || !pass || !pass_confirm) {
+        alert("Please, fill all fields!");
+    } else if (pass != pass_confirm) {
+        alert("Confirmation does not match password!");
+    } else {
+
+        rq = new XHR();
+        rq.open('POST', SRV + 'signup', true);
+        rq.setRequestHeader('Content-type', 'application/json');
+
+        rq.onload = function(data) {
+            if (this.responseText == 'OK') {
+                alert(`Welcome to Magadzin, ${user}!`);
+                sessionStorage.setItem('user', user);
+                document.getElementById('auth')
+                    .innerHTML = user;
+                for ([k, v] of Object.entries(CART)) {
+                    CART[k] = 0;
+                }
+                loadPage('main');
+            } else {
+                alert('Sorry, some problems occured.\nTry again later.');
+            }
+        }
+        rq.send(JSON.stringify({
+            'mail': mail,
             'user': user,
             'pass': pass
         }));
