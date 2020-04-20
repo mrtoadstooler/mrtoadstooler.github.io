@@ -1,6 +1,6 @@
 const XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 const URL = "https://mrtoadstooler.github.io/L2/";
-const SRV = "http://localhost:3100/api/";
+const SRV = "http://localhost:3100/api/v1/";
 const CART = {}
 
 
@@ -72,4 +72,43 @@ function buySelected() {
         }
     }
     rq.send(JSON.stringify(CART));
+}
+
+function login() {
+
+    user = document.getElementById('user')
+        .value;
+    pass = document.getElementById('pass')
+        .value;
+
+    if !(user && pass) {
+        alert("Please, fill all fields!")
+    } else {
+
+        rq = new XHR();
+        rq.open('POST', SRV + 'login', true);
+        rq.setRequestHeader('Content-type', 'application/json');
+
+        rq.onload = function(data) {
+            if (this.responseText == 'OK') {
+                alert(`Welcome back, ${user}!`);
+                sessionStorage.setItem('user', user);
+                loadPage('main');
+            } else if (this.responseText == 'UA') {
+                if (confirm(
+                        'Account does not exist!\nDo you want to sign up ?'
+                    )) {
+                    loadPage('signup');
+                    document.getElementById('user')
+                        .value = user;
+                }
+            } else {
+                alert('Some problems occured. Try again later.');
+            }
+        }
+        rq.send(JSON.stringify({
+            'user': user,
+            'pass': pass
+        }));
+    }
 }
