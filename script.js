@@ -8,7 +8,7 @@ const CART = {}
 
 function loadPage(name) {
     rq = new XHR();
-    rq.open('GET', URL + 'html/' + name, true);
+    rq.open('GET', URL + `html/${name}.html`, true);
     rq.onload = function() {
         document.getElementById('dynamic')
             .innerHTML = rq.responseText;
