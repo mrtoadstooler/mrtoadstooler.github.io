@@ -74,6 +74,7 @@ function buySelected() {
     rq.send(JSON.stringify(CART));
 }
 
+
 function login() {
 
     user = document.getElementById('user')
@@ -81,7 +82,7 @@ function login() {
     pass = document.getElementById('pass')
         .value;
 
-    if !(user && pass) {
+    if (!user && !pass) {
         alert("Please, fill all fields!")
     } else {
 
