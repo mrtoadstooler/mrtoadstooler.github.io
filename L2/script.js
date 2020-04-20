@@ -57,21 +57,27 @@ function selectProd(i) {
 
 
 function buySelected() {
-    rq = new XHR();
-    rq.open('POST', SRV + 'order', true);
-    rq.setRequestHeader('Content-type', 'application/json');
-    rq.withCredentials = true; // authorization
 
-    rq.onload = function(data) {
-        if (this.responseText == 'OK') {
-            alert('ACCEPTED!\nWe\'ve sent you an email with details.');
-            document.getElementById('cart-entry')
-                .innerHTML = '<i>selected products will be listed here</i>';
-        } else {
-            alert('DECLINED!\nSorry, some problems occured.');
+    if (sessionStorage.user) {
+        rq = new XHR();
+        rq.open('POST', SRV + 'order', true);
+        rq.setRequestHeader('Content-type', 'application/json');
+
+        rq.onload = function(data) {
+            if (this.responseText == 'OK') {
+                alert('ACCEPTED!\nWe\'ve sent you an email with details.');
+                CART = {};
+                document.getElementById('cart-entry')
+                    .innerHTML = '<i>selected products will be listed here</i>';
+            } else {
+                alert('DECLINED!\nSorry, some problems occured.');
+            }
         }
+        rq.send(JSON.stringify([sessionStorage.user, CART]));
+    } else {
+        alert('DECLINED! You should authorize first.');
     }
-    rq.send(JSON.stringify(CART));
+}
 }
 
 
@@ -94,6 +100,9 @@ function login() {
             if (this.responseText == 'OK') {
                 alert(`Welcome back, ${user}!`);
                 sessionStorage.setItem('user', user);
+                document.getElementById('auth')
+                    .innerHTML = user;
+                CART = {};
                 loadPage('main');
             } else if (this.responseText == 'UA') {
                 if (confirm(

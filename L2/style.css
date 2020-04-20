@@ -103,6 +103,10 @@ input[type=button]:hover {
     color: white;
 }
 
+#auth {
+    float:right;
+}
+
 /* MAIN-CARD ----------------------------------------------------------------*/
 .entry,
 .entry-empty,
