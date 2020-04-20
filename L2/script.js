@@ -1,7 +1,7 @@
 const XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 const URL = "https://mrtoadstooler.github.io/L2/";
 const SRV = "http://localhost:3100/api/v1/";
-sessionStorage.CART = {}
+var CART = {};
 
 
 function loadPage(name) {
@@ -27,7 +27,7 @@ function addToCart(i) {
     prod.innerHTML = rs['name'];
     prod.onclick = function removeProd() {
         if (confirm(`Remove "${rs['name']}" from cart?`)) {
-            sessionStorage.CART[i] += 1;
+            CART[i] += 1;
             document.getElementById('cart-list')
                 .removeChild(document.getElementsByClassName('sp' + i)[0]);
         }
@@ -44,11 +44,11 @@ function selectProd(i) {
     rq.onload = function() {
         rs = JSON.parse(rq.responseText);
 
-        if (parseInt(rs['qty']) + sessionStorage.CART[i] < 1) {
+        if (parseInt(rs['qty']) + CART[i] < 1) {
             alert('Sorry, but this product is out of stock.')
         } else {
             addToCart(i);
-            sessionStorage.CART[i] = sessionStorage.CART[i] - 1 || -1;
+            CART[i] = CART[i] - 1 || -1;
             alert('Added to cart!');
         }
     }
@@ -66,14 +66,14 @@ function buySelected() {
         rq.onload = function(data) {
             if (this.responseText == 'OK') {
                 alert('ACCEPTED!\nWe\'ve sent you an email with details.');
-                sessionStorage.CART = {};
+                CART = {};
                 document.getElementById('cart-entry')
                     .innerHTML = '<i>selected products will be listed here</i>';
             } else {
                 alert('DECLINED!\nSorry, some problems occured.');
             }
         }
-        rq.send(JSON.stringify([sessionStorage.user, sessionStorage.CART]));
+        rq.send(JSON.stringify([sessionStorage.user, CART]));
     } else {
         alert('DECLINED! You should authorize first.');
     }
@@ -101,7 +101,7 @@ function login() {
                 sessionStorage.setItem('user', user);
                 document.getElementById('auth')
                     .innerHTML = user;
-                sessionStorage.CART = {};
+                CART = {};
                 loadPage('main');
             } else if (this.responseText == 'UA') {
                 if (confirm(
