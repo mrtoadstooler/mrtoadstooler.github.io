@@ -1,7 +1,7 @@
 const XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 const URL = "https://mrtoadstooler.github.io/L2/";
 const SRV = "http://localhost:3100/api/v1/";
-var CART = {};
+const CART = {};
 
 
 function loadPage(name) {
@@ -66,7 +66,9 @@ function buySelected() {
         rq.onload = function(data) {
             if (this.responseText == 'OK') {
                 alert('ACCEPTED!\nWe\'ve sent you an email with details.');
-                CART = {};
+                for ([k, v] of Object.entries(CART)) {
+                    CART[k] = 0;
+                }
                 document.getElementById('cart-entry')
                     .innerHTML = '<i>selected products will be listed here</i>';
             } else {
@@ -101,7 +103,9 @@ function login() {
                 sessionStorage.setItem('user', user);
                 document.getElementById('auth')
                     .innerHTML = user;
-                CART = {};
+                for ([k, v] of Object.entries(CART)) {
+                    CART[k] = 0;
+                }
                 loadPage('main');
             } else if (this.responseText == 'UA') {
                 if (confirm(
