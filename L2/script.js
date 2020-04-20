@@ -78,7 +78,6 @@ function buySelected() {
         alert('DECLINED! You should authorize first.');
     }
 }
-}
 
 
 function login() {
