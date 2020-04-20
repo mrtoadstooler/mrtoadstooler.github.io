@@ -4,7 +4,8 @@
 <head>
     <title>Magadzin</title>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Electrolize&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
@@ -15,50 +16,52 @@
     </div>
 
     <div class="nav">
-        <a href="index.html">Main</a>
-        <a href="catalog.html">Buy</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html" style="float:right">Profile</a>
+        <a onclick="loadPage('main')">Main</a>
+        <a onclick="loadPage('catalog')">Buy</a>
+        <a onclick="loadPage('contact')">Contact</a>
+        <a onclick="loadPage('login')" style="float:right">Profile</a>
     </div>
 
-    <div class="entry-empty">
-        <div class="entry-left">
-            <h2>ABOUT MAGADZIN</h2>
-            <p><br />
-                We provide people all over Ukraine<br />
-                with the most usefull things.
-            </p>
-        </div>
+    <div id="dynamic">
+        <div class="entry-empty">
+            <div class="entry-left">
+                <h2>ABOUT MAGADZIN</h2>
+                <p><br />
+                    We provide people all over Ukraine<br />
+                    with the most usefull things.
+                </p>
+            </div>
 
-        <div class="entry-empty"></div>
+            <div class="entry-empty"></div>
 
-        <div class="entry-right">
-            <h2>HOW TO START?</h2>
-            <p><br />
-                1. Go to the "Buy" panel. <br /><br />
-                2. Select what you wish. <br /><br />
-                3. And we'll do the rest!
-            </p>
-        </div>
+            <div class="entry-right">
+                <h2>HOW TO START?</h2>
+                <p><br />
+                    1. Go to the "Buy" panel. <br /><br />
+                    2. Select what you wish. <br /><br />
+                    3. And we'll do the rest!
+                </p>
+            </div>
 
-        <div class="entry-empty"></div>
+            <div class="entry-empty"></div>
 
-        <div class="entry-left">
-            <h2>DELIVERY</h2>
-            <p><br />
-                Products you bought will be<br />
-                sent via "Nova Poshta".<br /><br />
-                Delivery process usually takes<br />
-                from 1 to 5 days.
-            </p>
-        </div>
+            <div class="entry-left">
+                <h2>DELIVERY</h2>
+                <p><br />
+                    Products you bought will be<br />
+                    sent via "Nova Poshta".<br /><br />
+                    Delivery process usually takes<br />
+                    from 1 to 5 days.
+                </p>
+            </div>
 
-        <div class="entry-empty"></div>
+            <div class="entry-empty"></div>
 
-        <div class="entry-right">
-            <h2>CUSTOMER REVIEWS</h2>
-            <div class="entry">
-                We had no customers so far :(
+            <div class="entry-right">
+                <h2>CUSTOMER REVIEWS</h2>
+                <div class="entry">
+                    We had no customers so far :(
+                </div>
             </div>
         </div>
     </div>
