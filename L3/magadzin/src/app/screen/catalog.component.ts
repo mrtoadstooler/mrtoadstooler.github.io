@@ -1,8 +1,8 @@
-import { Component,  OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
     selector: 'screen-catalog',
     templateUrl: './catalog.component.html'
 })
 
-export class ScreenCatalogComponent implements OnInit {}
+export class ScreenCatalogComponent {}
