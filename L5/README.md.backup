@@ -1,0 +1,10 @@
+# Lab #5. Magadzin
+
+Written using **Angular** framework, **Redis** database and **Express** for back-end REST API server.
+
+Testing is done using **Karma** & **Jasmine** for writing and checking unit tests, and **Istanbul** for creating the code coverage metrics.
+
+### How to launch?
+Download the git repository, go to `L5` folder and run `ng serve --open` in it. The webpage will appear on your localhost. Port depends on your Angular preferences (but usually it is 4200).
+
+To run Kar
